@@ -2746,13 +2746,13 @@ void YWindowManager::setDesktopCount() {
 
 void YWindowManager::setDesktopViewport() {
     MSG(("setting: _NET_DESKTOP_VIEWPORT"));
-    int n = 2 * workspaceCount();
+    int n = 2;
     long *data = new long[n];
     for (int i = 0; i < n; i++)
         data[i] = 0;
     XChangeProperty(xapp->display(), handle(),
                     _XA_NET_DESKTOP_VIEWPORT, XA_CARDINAL,
-                    32, PropModeReplace, (unsigned char *)data, n);
+                    32, PropModeReplace, (unsigned char *)data, 2);
     delete[] data;
 }
 
